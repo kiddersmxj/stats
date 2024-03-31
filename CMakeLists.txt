@@ -16,6 +16,9 @@ if(NOT ftxui_POPULATED)
   add_subdirectory(${ftxui_SOURCE_DIR} ${ftxui_BINARY_DIR} EXCLUDE_FROM_ALL)
 endif()
 
+FetchContent_Declare(json URL https://github.com/nlohmann/json/releases/download/v3.11.2/json.tar.xz)
+FetchContent_MakeAvailable(json)
+
 # ------------------------------------------------------------------------------
 
 cmake_minimum_required(VERSION 3.11)
@@ -43,6 +46,7 @@ target_link_libraries(stats
     PRIVATE ftxui::dom
     PRIVATE ftxui::component
     PRIVATE std-k
+    PRIVATE nlohmann_json::nlohmann_json
 )
 target_compile_features(stats PUBLIC cxx_std_20)
 
