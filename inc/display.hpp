@@ -2,6 +2,7 @@
 #define K_DISPLAY
 
 #include "config.hpp"
+#include "values.hpp"
 
 #include <cmath>       // for sin
 

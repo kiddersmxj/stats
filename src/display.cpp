@@ -3,6 +3,9 @@
 using namespace ftxui;
 
 int Display() {
+    int shift(0);
+    Values Values;
+
   std::array<bool, 30> states;
  
     auto checkcontainer = Container::Vertical({});
@@ -10,37 +13,6 @@ int Display() {
         states[i] = false;
         checkcontainer->Add(Checkbox("Checkbox" + std::to_string(i), &states[i]));
     }
-
-  auto c = Canvas(100, 100);
- 
-  c.DrawText(0, 0, "This is a canvas", [](Pixel& p) {
-    p.foreground_color = Color::Red;
-    p.underlined = true;
-  });
- 
-  // Triangle:
-  c.DrawPointLine(10, 10, 80, 10, Color::Red);
-  c.DrawPointLine(80, 10, 80, 40, Color::Blue);
-  c.DrawPointLine(80, 40, 10, 10, Color::Green);
-
-  c.DrawPointLine(50, 50, 20, 30, Color::Blue);
- 
-  // Circle, not filled and filled:
-  /* c.DrawPointCircle(30, 50, 20); */
-  /* c.DrawPointCircleFilled(40, 40, 10); */
- 
-  // Plot a function:
-  std::vector<int> ys(100);
-  for (int x = 0; x < 100; x++)
-    ys[x] = int(80 + 20 * cos(x * 0.2));
-  for (int x = 0; x < 99; x++) {
-    c.DrawPointLine(x, ys[x], x + 1, ys[x + 1], Color::Red);
-  }
- 
-    auto canvscont = Renderer([&] {
-      auto document = canvas(&c) | border;
-      return document;
-      });
 
     auto Graph = [](int width, int height) {
         int shift = 0;
@@ -55,6 +27,52 @@ int Display() {
         }
     return output;
     };
+
+    auto testcomponent = Renderer([&Values] {
+        auto my_image = vbox({
+                canvas([&Values] (Canvas& c) {
+                    auto w = c.width();
+                    auto h = c.height();
+                    int Highest(0);
+                    int Lowest(100000);
+
+                    std::vector<Point> Points;
+
+                    int i(5);
+                    for(auto V: Values.GetTotals()) {
+                        if(V.Number > Highest) { Highest = V.Number; }
+                        if(V.Number < Lowest) { Lowest = V.Number; }
+                    }
+                    
+                    // Add a little extra to highest
+                    Highest = Highest + (Highest/10);
+                    i = 0;
+                    for(auto V: Values.GetTotals()) {
+                        Point Point = { .x = Values.ExtrapolateWidth(i, Values.GetTotals().size(), w), \
+                                        .y = Values.ExtrapolateHeight(V.Number, Lowest, Highest, h), \
+                                        .V = V };
+                        /* c.DrawText(Point.x, Point.y + 4, std::to_string(Point.y), Color::Red); */
+                        /* c.DrawText(Point.x, Point.y - 4, std::to_string(Point.y), Color::Red); */
+
+                        Points.push_back(Point);
+                        i++;
+                    }
+                    for(int i(0); i < Points.size()-1; i++) {
+                        c.DrawPointLine(Points.at(i).x, Points.at(i).y, Points.at(i+1).x, Points.at(i+1).y);
+                        c.DrawText(Points.at(i).x, Points.at(i).y-1, std::to_string(Points.at(i).V.Number), Color::Blue);
+                    }
+                    c.DrawText(Points.at(Points.size()-1).x, Points.at(Points.size()-1).y-1, std::to_string(Points.at(Points.size()-1).V.Number), Color::Blue);
+
+                    /* c.DrawPointLine(0, 0, c.width(), c.height()); */
+                    c.DrawText(0, 0, "width = " + std::to_string(c.width()));
+                    c.DrawText(0, 4, "height = " + std::to_string(c.height()));
+                    /* c.DrawBlock(c.width() - 2, c.height() - 2, Color::Blue); */
+                }) | flex
+        });
+        return my_image | flex;
+    });
+
+    auto options = Container::Vertical({});
  
     auto container = Renderer([&] {
             auto element = vbox({
@@ -65,12 +83,13 @@ int Display() {
 
     int tab_index(0);
     std::vector<std::string> tab_entries = {
-        "graph", "stats",
+        "graph", "stats", "options"
     };
     auto tab_selection = Menu(&tab_entries, &tab_index, MenuOption::Horizontal());
     auto tab_content = Container::Tab({
-            container,
-            canvscont,
+            testcomponent,
+            checkcontainer,
+            options,
     }, &tab_index);
 
       auto main_container = Container::Vertical({
@@ -78,13 +97,18 @@ int Display() {
           tab_content,
       });
 
-  auto renderer = Renderer(main_container, [&] {
-    return vbox({
-        text("FTXUI Demo") | bold | hcenter,
-        tab_selection->Render(),
-        tab_content->Render() | flex,
-    }) | flex;
-  });
+    auto renderer = Renderer(main_container, [&] {
+        return hbox({
+                separatorEmpty(),
+                vbox({
+                    text("MXJKM OIC") | bold | hcenter,
+                    tab_selection->Render(),
+                    tab_content->Render() | flex | border,
+                    text("Div 4: Confirms") | bold,
+                }) | flex,
+                separatorEmpty()
+                }) | border;
+    });
 
     
     /* auto renderer = Renderer(container, [&] { */
@@ -92,8 +116,26 @@ int Display() {
     /*        size(HEIGHT, LESS_THAN, 10) | border; */
   /* }); */
  
-  auto screen = ScreenInteractive::FitComponent();
+  auto screen = ScreenInteractive::Fullscreen();
+
+  bool refresh_ui_continue = true;
+  std::thread refresh_ui([&] {
+    while (refresh_ui_continue) {
+      using namespace std::chrono_literals;
+      std::this_thread::sleep_for(0.05s);
+      // The |shift| variable belong to the main thread. `screen.Post(task)`
+      // will execute the update on the thread where |screen| lives (e.g. the
+      // main thread). Using `screen.Post(task)` is threadsafe.
+      screen.Post([&] { shift++; });
+      // After updating the state, request a new frame to be drawn. This is done
+      // by simulating a new "custom" event to be handled.
+      screen.Post(Event::Custom);
+    }
+  });
+
   screen.Loop(renderer);
+  refresh_ui_continue = false;
+  refresh_ui.join();
  
   return 0;
 }

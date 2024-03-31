@@ -3,7 +3,21 @@
 Graphs::Graphs() {
 }
 
+Graphs::Graphs(Values &Values) {
+    for(auto V: Values.GetTotals()) {
+        std::cout << V.WE.Date << " - " << V.Number << std::endl;
+    }
+}
+
 Graphs::~Graphs() {
+}
+
+std::vector<Point> Graphs::GenPoints(std::vector<Value> &Values) {
+    std::vector<Point> Points;
+    for(auto Value: Values) {
+
+    }
+    return Points;
 }
 
 int Graphs::GetDay(k::T Time) {

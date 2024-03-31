@@ -12,12 +12,20 @@ typedef struct {
     ftxui::Color Colour;
 } Graph;
 
+/* typedef struct { */
+/*     int x; */
+/*     int y; */
+/*     Value V; */
+/* } Point; */
+
 class Graphs {
     public:
         Graphs();
+        Graphs(Values &Values);
         ~Graphs();
         std::vector<Graph> Get();
     private:
+        std::vector<Point> GenPoints(std::vector<Value> &Values);
         std::vector<Graph> Gs;
         void Refresh();
         void Save();

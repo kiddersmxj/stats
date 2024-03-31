@@ -57,14 +57,6 @@ int main(int argc, char** argv) {
     }
 
     if(TestFlag) {
-        /* k::T T; */
-        /* k::Time Time(T); */
-        /* while(1) { */
-        /* // Print components */
-        /*     std::cout << T.Year << "-" << T.Month << "-" << T.Day */
-        /*         << " " << T.Hour << ":" << T.Min << ":" << T.Sec << std::endl; */
-        /* } */
-
         Display();
         return EXIT_SUCCESS;
     }

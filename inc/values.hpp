@@ -19,10 +19,17 @@ typedef struct {
 } Value;
 
 typedef struct {
+    int x;
+    int y;
+    Value V;
+} Point;
+
+typedef struct {
     std::vector<Value> Values;
     Condition Cond;
     k::T WE;
     std::string Type;
+    int Total;
 } Week;
 
 class Values {
@@ -30,7 +37,13 @@ class Values {
         Values();
         ~Values();
         void Refresh();
+        std::vector<Value> GetTotals();
+        std::vector<Week> GetWeeks();
+        int ExtrapolateHeight(int &Input, int &Lowest, int &Highest, int &Height);
+        int ExtrapolateWidth(int &Input, int Size, int &Height);
+        int Reverse(int &Input, int &Height);
     private:
+        std::vector<Value> Totals;
         std::vector<Week> Weeks;
         int GetDay(k::T Time);
 };

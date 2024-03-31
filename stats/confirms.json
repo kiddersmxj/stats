@@ -1,20 +1,202 @@
 {
-    "2024-4-4": {
+    "2024-04-04": {
+        "total": 3,
+        "number": [0, 0, 2, 0, 0, 1, 0],
+        "dailycondition": ["x", "a", "x", "e", "n", "x", "e"],
+        "weekcondition": "non-ex",
+        "appliedcondition": "emergency",
+        "type": "confirms",
+        "short": "CFRM",
+        "WE": [2024, 4, 4]
+    },
+    "2024-03-28": {
         "total": 2,
-        "number": [ 0, 2, 0, 0, 0, 0, 0 ],
-        "dailycondition": [ "e", "e", "n", "." , ".", ".", "." ],
+        "number": [0, 0, 0, 0, 0, 2, 0],
+        "dailycondition": ["n", "d", "x", "x", "x", "a", "d"],
+        "weekcondition": "affluence",
+        "appliedcondition": "non-ex",
+        "type": "confirms",
+        "short": "CFRM",
+        "WE": [2024, 3, 28]
+    },
+    "2024-03-21": {
+        "total": 1,
+        "number": [0, 0, 0, 0, 0, 0, 1],
+        "dailycondition": ["n", "a", "d", "n", "n", "e", "x"],
+        "weekcondition": "affluence",
+        "appliedcondition": "emergency",
+        "type": "confirms",
+        "short": "CFRM",
+        "WE": [2024, 3, 21]
+    },
+    "2024-03-14": {
+        "total": 4,
+        "number": [0, 3, 0, 0, 1, 0, 0],
+        "dailycondition": ["x", "x", "a", "x", "a", "d", "n"],
+        "weekcondition": "affluence",
+        "appliedcondition": "affluence",
+        "type": "confirms",
+        "short": "CFRM",
+        "WE": [2024, 3, 14]
+    },
+    "2024-03-07": {
+        "total": 4,
+        "number": [0, 0, 0, 0, 4, 0, 0],
+        "dailycondition": ["d", "e", "x", "e", "x", "n", "x"],
+        "weekcondition": "emergency",
+        "appliedcondition": "emergency",
+        "type": "confirms",
+        "short": "CFRM",
+        "WE": [2024, 3, 7]
+    },
+    "2024-02-29": {
+        "total": 7,
+        "number": [0, 1, 0, 2, 0, 4, 0],
+        "dailycondition": ["d", "d", "n", "d", "d", "x", "d"],
+        "weekcondition": "emergency",
+        "appliedcondition": "non-ex",
+        "type": "confirms",
+        "short": "CFRM",
+        "WE": [2024, 2, 29]
+    },
+    "2024-02-22": {
+        "total": 10,
+        "number": [0, 0, 1, 1, 0, 8, 0],
+        "dailycondition": ["a", "x", "d", "a", "d", "e", "d"],
+        "weekcondition": "affluence",
+        "appliedcondition": "danger",
+        "type": "confirms",
+        "short": "CFRM",
+        "WE": [2024, 2, 22]
+    },
+    "2024-02-15": {
+        "total": 2,
+        "number": [0, 0, 0, 0, 1, 0, 1],
+        "dailycondition": ["a", "n", "d", "d", "d", "d", "n"],
+        "weekcondition": "non-ex",
+        "appliedcondition": "emergency",
+        "type": "confirms",
+        "short": "CFRM",
+        "WE": [2024, 2, 15]
+    },
+    "2024-02-08": {
+        "total": 5,
+        "number": [0, 0, 1, 0, 1, 0, 3],
+        "dailycondition": ["e", "x", "d", "n", "e", "d", "e"],
+        "weekcondition": "affluence",
+        "appliedcondition": "emergency",
+        "type": "confirms",
+        "short": "CFRM",
+        "WE": [2024, 2, 8]
+    },
+    "2024-02-01": {
+        "total": 7,
+        "number": [2, 0, 0, 0, 2, 3, 0],
+        "dailycondition": ["x", "d", "e", "d", "d", "n", "a"],
+        "weekcondition": "affluence",
+        "appliedcondition": "non-ex",
+        "type": "confirms",
+        "short": "CFRM",
+        "WE": [2024, 2, 1]
+    },
+    "2024-01-25": {
+        "total": 3,
+        "number": [1, 0, 0, 0, 0, 2, 0],
+        "dailycondition": ["n", "a", "x", "n", "d", "n", "a"],
+        "weekcondition": "emergency",
+        "appliedcondition": "emergency",
+        "type": "confirms",
+        "short": "CFRM",
+        "WE": [2024, 1, 25]
+    },
+    "2024-01-18": {
+        "total": 5,
+        "number": [5, 0, 0, 0, 0, 0, 0],
+        "dailycondition": ["n", "e", "e", "d", "n", "e", "e"],
+        "weekcondition": "danger",
+        "appliedcondition": "danger",
+        "type": "confirms",
+        "short": "CFRM",
+        "WE": [2024, 1, 18]
+    },
+    "2024-01-11": {
+        "total": 4,
+        "number": [1, 1, 0, 0, 1, 0, 1],
+        "dailycondition": ["e", "a", "n", "x", "n", "d", "x"],
+        "weekcondition": "non-ex",
+        "appliedcondition": "affluence",
+        "type": "confirms",
+        "short": "CFRM",
+        "WE": [2024, 1, 11]
+    },
+    "2024-01-04": {
+        "total": 5,
+        "number": [0, 0, 0, 4, 1, 0, 0],
+        "dailycondition": ["d", "n", "a", "d", "e", "d", "x"],
+        "weekcondition": "danger",
+        "appliedcondition": "non-ex",
+        "type": "confirms",
+        "short": "CFRM",
+        "WE": [2024, 1, 4]
+    },
+    "2023-12-28": {
+        "total": 9,
+        "number": [0, 0, 6, 1, 0, 0, 2],
+        "dailycondition": ["e", "n", "n", "d", "n", "a", "e"],
+        "weekcondition": "emergency",
+        "appliedcondition": "danger",
+        "type": "confirms",
+        "short": "CFRM",
+        "WE": [2023, 12, 28]
+    },
+    "2023-12-21": {
+        "total": 4,
+        "number": [0, 0, 4, 0, 0, 0, 0],
+        "dailycondition": ["a", "x", "e", "d", "n", "a", "a"],
+        "weekcondition": "danger",
+        "appliedcondition": "danger",
+        "type": "confirms",
+        "short": "CFRM",
+        "WE": [2023, 12, 21]
+    },
+    "2023-12-14": {
+        "total": 8,
+        "number": [1, 1, 0, 0, 0, 0, 6],
+        "dailycondition": ["n", "e", "e", "x", "x", "d", "d"],
         "weekcondition": "emergency",
         "appliedcondition": "affluence",
         "type": "confirms",
-        "WE": [ 2024, 4, 4 ]
+        "short": "CFRM",
+        "WE": [2023, 12, 14]
     },
-    "2024-3-28": {
-        "total": 7,
-        "number": [ 4, 2, 0, 0, 1, 4, 0 ],
-        "dailycondition": [ "n", "e", "x", "x", "n", "a", "x" ],
-        "weekcondition": "affluence",
-        "appliedcondition": "normal",
+    "2023-12-07": {
+        "total": 10,
+        "number": [0, 0, 0, 0, 0, 10, 0],
+        "dailycondition": ["a", "a", "a", "d", "e", "e", "e"],
+        "weekcondition": "danger",
+        "appliedcondition": "affluence",
         "type": "confirms",
-        "WE": [ 2024, 3, 28 ]
+        "short": "CFRM",
+        "WE": [2023, 12, 7]
+    },
+    "2023-11-30": {
+        "total": 0,
+        "number": [0, 0, 0, 0, 0, 0, 0],
+        "dailycondition": ["e", "x", "d", "e", "e", "d", "n"],
+        "weekcondition": "non-ex",
+        "appliedcondition": "emergency",
+        "type": "confirms",
+        "short": "CFRM",
+        "WE": [2023, 11, 30]
+    },
+    "2023-11-23": {
+        "total": 2,
+        "number": [0, 0, 0, 1, 0, 1, 0],
+        "dailycondition": ["n", "x", "d", "x", "x", "x", "x"],
+        "weekcondition": "emergency",
+        "appliedcondition": "non-ex",
+        "type": "confirms",
+        "short": "CFRM",
+        "WE": [2023, 11, 23]
     }
 }
