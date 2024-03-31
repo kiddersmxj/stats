@@ -11,6 +11,8 @@ options:
     -h / --help         show help and usage notes
     -v / --version      print version and exit)";
 
+const std::string StatsDir = HOME + "/devel/stats/stats/";
+
 #endif
 
 // Copyright (c) 2024, Maxamilian Kidd-May

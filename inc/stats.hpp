@@ -2,6 +2,9 @@
 #define K_STATS
 
 #include "config.hpp"
+#include "display.hpp"
+#include "graphs.hpp"
+#include "values.hpp"
 
 #include <getopt.h>
 

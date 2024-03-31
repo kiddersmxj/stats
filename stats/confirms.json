@@ -1,0 +1,20 @@
+{
+    "2024-4-4": {
+        "total": 2,
+        "number": [ 0, 2, 0, 0, 0, 0, 0 ],
+        "dailycondition": [ "e", "e", "n", "." , ".", ".", "." ],
+        "weekcondition": "emergency",
+        "appliedcondition": "affluence",
+        "type": "confirms",
+        "WE": [ 2024, 4, 4 ]
+    },
+    "2024-3-28": {
+        "total": 7,
+        "number": [ 4, 2, 0, 0, 1, 4, 0 ],
+        "dailycondition": [ "n", "e", "x", "x", "n", "a", "x" ],
+        "weekcondition": "affluence",
+        "appliedcondition": "normal",
+        "type": "confirms",
+        "WE": [ 2024, 3, 28 ]
+    }
+}

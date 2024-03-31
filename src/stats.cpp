@@ -3,18 +3,20 @@
 int main(int argc, char** argv) {
     int HelpFlag = 0;
     int VersionFlag = 0;
+    int TestFlag = 0;
     int opt;
 
     // Get opt option defenitions
     struct option Opts[] = {
         { "help", no_argument, &HelpFlag, 1 },
         { "version", no_argument, &VersionFlag, 1 },
+        { "test", no_argument, &TestFlag, 1 },
         { 0 }
     };
 
     // Infinite loop, to be broken when we are done parsing options
     while (1) {
-        opt = getopt_long(argc, argv, "hv", Opts, 0);
+        opt = getopt_long(argc, argv, "hvt", Opts, 0);
 
         // A return value of -1 indicates that there are no more options
         if (opt == -1) {
@@ -31,6 +33,9 @@ int main(int argc, char** argv) {
             break;
         case 'v':
             VersionFlag = 1;
+            break;
+        case 't':
+            TestFlag = 1;
             break;
         case '?':
             Usage();
@@ -50,6 +55,21 @@ int main(int argc, char** argv) {
         PrintVersion();
         return EXIT_SUCCESS;
     }
+
+    if(TestFlag) {
+        /* k::T T; */
+        /* k::Time Time(T); */
+        /* while(1) { */
+        /* // Print components */
+        /*     std::cout << T.Year << "-" << T.Month << "-" << T.Day */
+        /*         << " " << T.Hour << ":" << T.Min << ":" << T.Sec << std::endl; */
+        /* } */
+
+        Display();
+        return EXIT_SUCCESS;
+    }
+
+    Values Values;
 
     return 0;
 }
