@@ -44,6 +44,8 @@ class Values {
         int Reverse(int &Input, int &Height);
     private:
         std::vector<Value> Totals;
+        std::vector<Value> Highest;
+        std::vector<Value> Lowest;
         std::vector<Week> Weeks;
         int GetDay(k::T Time);
 };
